@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: bp-ingress
+spec:
+  rules:
+    - host: blue.demo.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: blue-service
+                port:
+                  number: 80
+              
+            pathType: Prefix
+            path: /
+    - host: purple.demo.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: purple-service
+                port:
+                  number: 80
+              
+            pathType: Prefix
+            path: /
