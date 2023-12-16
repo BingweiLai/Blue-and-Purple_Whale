@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blue-whale
+  namespace: whale
+spec:
+  selector:
+    matchLabels:
+      app: blue-whale
+  template:
+    metadata:
+      labels:
+        app: blue-whale
+    spec:
+      containers:
+        - name: blue-whale
+          image: hcwxd/blue-whale
+          ports:
+            - containerPort: 3000

@@ -1,10 +1,11 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: bp-ingress
+  name: ingress
+  namespace: whale
 spec:
   rules:
-    - host: blue.demo.com
+    - host: blue-whale.demo.com
       http:
         paths:
           - backend:
@@ -12,10 +13,9 @@ spec:
                 name: blue-service
                 port:
                   number: 80
-              
             pathType: Prefix
             path: /
-    - host: purple.demo.com
+    - host: purple-whale.demo.com
       http:
         paths:
           - backend:
@@ -23,6 +23,5 @@ spec:
                 name: purple-service
                 port:
                   number: 80
-              
             pathType: Prefix
             path: /
